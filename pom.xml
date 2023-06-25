@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lwjgl.version>3.3.0</lwjgl.version>
         <lwjgl3-awt.version>0.1.8</lwjgl3-awt.version>
+        <pngdecoder.version>1.0</pngdecoder.version>
     </properties>
 
     <profiles>
@@ -56,6 +57,11 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.l33tlabs.twl</groupId>
+            <artifactId>pngdecoder</artifactId>
+            <version>${pngdecoder.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl</artifactId>

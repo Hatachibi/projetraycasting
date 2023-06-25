@@ -1,4 +1,4 @@
 package com.modules.entity;
 
-public class Entity {
+public class Personnage {
 }
