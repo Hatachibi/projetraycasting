@@ -94,7 +94,9 @@ public class Fenetre {
                 //TODO update
 
                 //TODO render
-                
+
+                Rendu.getInstance().drawPlayer();
+
                 //TODO tick++
 
                 frames++;

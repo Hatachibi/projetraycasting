@@ -1,5 +1,6 @@
 package com.modules.vue;
 
+import com.modules.controller.PersonnageController;
 import org.lwjgl.opengl.GL;
 
 import static org.lwjgl.glfw.GLFW.glfwMakeContextCurrent;
@@ -22,18 +23,17 @@ public class Rendu {
         glOrtho(0, Fenetre.WidthFenetre, 0, Fenetre.HeigthFenetre, -1, 1);
     }
 
-    /**
-     * @param x
-     * @param y
-     * @param size
-     * @return Dessine un point d'une certaine taille
-     */
     public void drawPoint(float x, float y, int size) {
         glColor4f(1f, 1f, 1f, 1f);
         glPointSize(size);
         glBegin(GL_POINTS);
         glVertex2f(x, y);
         glEnd();
+    }
+
+
+    public void drawPlayer() {
+        PersonnageController.getPersonnageController().drawPlayer();
     }
 
 }
