@@ -11,6 +11,7 @@ public class PersonnageService implements IPersonnageService {
     private static final IPersonnageService personnageService = new PersonnageService();
 
     public PersonnageService() {
+        position = new Vector2(0,0);
         direction = new Vector2();
         this.speed = 5.85;
     }
