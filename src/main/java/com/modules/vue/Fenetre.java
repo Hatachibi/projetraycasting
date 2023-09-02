@@ -51,8 +51,9 @@ public class Fenetre {
 
     public void run() {
         while(!Fenetre.getInstance().isClosed()) {
-
+            glfwPollEvents();
         }
+        glfwTerminate();
     }
 
 }
