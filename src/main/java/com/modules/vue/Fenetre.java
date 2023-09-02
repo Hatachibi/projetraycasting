@@ -94,11 +94,12 @@ public class Fenetre {
                 //TODO update
 
                 //TODO render
-
+                
                 //TODO tick++
 
                 frames++;
                 updateAndRender = false;
+                glfwSwapBuffers(window);
             }
 
         }
