@@ -31,6 +31,14 @@ public class Rendu {
         glEnd();
     }
 
+    public void drawTrait(float x1, float y1, float x2, float y2, float width) {
+        glLineWidth(width);
+        glBegin(GL_LINES);
+        glVertex2f(x1, y1);
+        glVertex2f(x2, y2);
+        glEnd();
+    }
+
 
     public void drawPlayer() {
         PersonnageController.getPersonnageController().drawPlayer();

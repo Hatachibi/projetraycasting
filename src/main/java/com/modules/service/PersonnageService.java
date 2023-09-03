@@ -11,7 +11,7 @@ public class PersonnageService implements IPersonnageService {
     private static final IPersonnageService personnageService = new PersonnageService();
 
     public PersonnageService() {
-        position = new Vector2(0,0);
+        position = new Vector2(200,200);
         direction = new Vector2();
         this.speed = 5.85;
     }
@@ -38,7 +38,7 @@ public class PersonnageService implements IPersonnageService {
         this.position = position;
     }
 
-    private Vector2 getPosition() {
+    public Vector2 getPosition() {
         return position;
     }
 

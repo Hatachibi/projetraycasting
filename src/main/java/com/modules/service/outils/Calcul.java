@@ -14,8 +14,13 @@ public class Calcul {
         return Math.abs(angle + rotation) % 360;
     }
 
-    public static Vector2 rotateVector(float angle, Vector2 position){
-        return new Vector2(Math.cos(angle)*position.getX(),Math.sin(angle)*position.getY());
+    public static Vector2 rotateVector(float angle, Vector2 position) {
+        angle = (float) Math.toRadians(angle);
+        float x = (float) position.getX();
+        float y = (float) position.getY();
+        float newX = x * (float) Math.cos(angle) - y * (float) Math.sin(angle);
+        float newY = x * (float) Math.sin(angle) + y * (float) Math.cos(angle);
+        return new Vector2(newX, newY);
     }
 
 }

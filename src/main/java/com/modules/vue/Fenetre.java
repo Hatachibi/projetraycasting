@@ -1,6 +1,7 @@
 package com.modules.vue;
 
 import com.modules.service.outils.ConstantesInfos;
+import com.modules.service.outils.Raycasting;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 
@@ -92,6 +93,8 @@ public class Fenetre {
             if(updateAndRender){
 
                 //TODO update
+
+                Raycasting.getInstance().computeRays();
 
                 //TODO render
 
