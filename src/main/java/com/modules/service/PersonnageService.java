@@ -12,6 +12,8 @@ public class PersonnageService implements IPersonnageService {
     protected float angle;
 
     private Vector2 direction;
+
+    private static final float speedRotation = 5f;
     private static final IPersonnageService personnageService = new PersonnageService();
 
     public PersonnageService() {
@@ -56,16 +58,15 @@ public class PersonnageService implements IPersonnageService {
         deplacement();
     }
 
-    public void addAngle(float angle) {s
-        float tmp = this.angle + angle*10;
+    public void addAngle(float angle) {
+        float tmp = this.angle + angle*speedRotation;
         if(tmp >= 360 ){
             this.angle = 0;
         } else if (tmp <=0){
             this.angle = 360;
         } else {
-            this.angle += angle*10;
+            this.angle += angle*speedRotation;
         }
-        System.out.println(this.angle);
     }
 
     public float getAngle() {

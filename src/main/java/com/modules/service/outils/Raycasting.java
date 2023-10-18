@@ -1,6 +1,7 @@
 package com.modules.service.outils;
 
 import com.modules.service.PersonnageService;
+import com.modules.vue.Fenetre;
 import com.modules.vue.Rendu;
 
 public class Raycasting {
@@ -11,7 +12,7 @@ public class Raycasting {
 
     private final static Raycasting INSTANCE = new Raycasting();
 
-    public static Raycasting getInstance(){
+    public static Raycasting getInstance() {
         return INSTANCE;
     }
 
@@ -21,7 +22,7 @@ public class Raycasting {
 
         for (float i = -FOV / 2; i <= FOV / 2; i += FOV / NUMBER_RAYS) {
             // Rotation du vecteur (i degrés) autour de l'origine
-            Vector2 finishPosition = Calcul.rotateVector(i+angle,new Vector2(playerPosition.getX(),0));
+            Vector2 finishPosition = Calcul.rotateVector(i + angle, new Vector2(playerPosition.getX(), 0));
 
             // Coordonnées du point de départ
             float x1 = (float) playerPosition.getX();
@@ -37,6 +38,16 @@ public class Raycasting {
         }
     }
 
+    public static float dist(float ax, float ay, float bx, float by) {
+        return (float) (Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)));
+    }
+
+    public static float calculMur(float ra, float a, int[] map, PersonnageService personnageService) {
+        int x = (int) (personnageService.getPosition().getX() / Fenetre.WidthFenetre);
+        int y = (int) (personnageService.getPosition().getY() / Fenetre.HeigthFenetre);
+
+        return ra;
+    }
 
 
 }
