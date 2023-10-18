@@ -73,10 +73,6 @@ public class PersonnageController implements PersonnageApi {
     public static PersonnageApi getPersonnageController() {
         return personnageController;
     }
-    @Override
-    public void deplacement() {
-        PersonnageService.getPersonnageService().deplacement();
-    }
 
     @Override
     public void subitDegats(int dommage) {
