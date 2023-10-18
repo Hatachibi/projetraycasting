@@ -1,6 +1,7 @@
 package com.modules.vue;
 
 import com.modules.controller.PersonnageController;
+import com.modules.entity.Monde;
 import com.modules.service.outils.ConstantesInfos;
 import com.modules.service.outils.Raycasting;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -101,6 +102,7 @@ public class Fenetre {
 
                 Rendu.getInstance().drawPlayer();
                 PersonnageController.getPersonnageController().deplacement();
+                Rendu.getInstance().drawWorld(Monde.baseMap);
 
                 Raycasting.getInstance().computeRays();
                 //TODO tick++

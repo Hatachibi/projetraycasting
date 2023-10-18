@@ -39,6 +39,41 @@ public class Rendu {
         glEnd();
     }
 
+    public void drawWorld(int[] monde) {
+        float largeur = (float) Fenetre.WidthFenetre /10;
+        float hauteur = (float) Fenetre.HeigthFenetre /10;
+        float x = 0f;
+        float y = 0f;
+        int decalage = 0;
+        for(int i = 0; i<monde.length; i++) {
+            if(monde[i] == 1) {
+                drawSquareMap(x+(largeur*(i%10)),y+(hauteur*decalage),largeur, hauteur);
+                if(i != 0 && i%10 == 0) {
+                    decalage++;
+                }
+            }
+        }
+    }
+
+    public void drawSquareMap(float x, float y, float width, float height) {
+        glBegin(GL_QUADS);
+        glVertex2f(x, y);
+        glVertex2f(x + width, y);
+        glVertex2f(x + width, y + height);
+        glVertex2f(x, y + height);
+        glEnd();
+    }
+
+    public void drawSquare(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+        glColor4f(1f, 1f, 1f, 1f);
+        glBegin(GL_QUADS);
+        glVertex2f(x1, y1);
+        glVertex2f(x2, y2);
+        glVertex2f(x3, y3);
+        glVertex2f(x4, y4);
+        glEnd();
+    }
+
 
     public void drawPlayer() {
         PersonnageController.getPersonnageController().drawPlayer();

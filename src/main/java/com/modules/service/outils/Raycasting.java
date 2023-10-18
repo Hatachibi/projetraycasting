@@ -1,6 +1,7 @@
 package com.modules.service.outils;
 
 import com.modules.service.PersonnageService;
+import com.modules.vue.Fenetre;
 import com.modules.vue.Rendu;
 
 public class Raycasting {
@@ -33,6 +34,16 @@ public class Raycasting {
             // Dessiner le vecteur
             Rendu.getInstance().drawTrait(x1, y1, x2, y2, 1);
         }
+    }
+
+    public static float dist(float ax, float ay, float bx, float by) {
+        return (float) (Math.sqrt((bx-ax)*(bx-ax) + (by-ay)*(by-ay)));
+    }
+
+    public static float calculMur(float ra, float a, int[] map, PersonnageService personnageService) {
+        int x = (int) (personnageService.getPosition().getX()/Fenetre.WidthFenetre);
+        int y = (int) (personnageService.getPosition().getY()/ Fenetre.HeigthFenetre);
+
     }
 
 
