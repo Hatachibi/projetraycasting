@@ -10,5 +10,4 @@ public interface PersonnageApi {
 
     void drawPlayer();
 
-    //PersonnageApi getPersonnageController();
 }

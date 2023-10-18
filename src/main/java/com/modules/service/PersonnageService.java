@@ -3,6 +3,7 @@ package com.modules.service;
 import com.modules.service.interfaces.IPersonnageService;
 import com.modules.service.outils.Vector2;
 import com.modules.vue.Rendu;
+import org.lwjgl.opengl.GL11;
 
 public class PersonnageService implements IPersonnageService {
     private final double speed;
@@ -43,6 +44,7 @@ public class PersonnageService implements IPersonnageService {
     }
 
     public void drawPlayer() {
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         Rendu.getInstance().drawPoint((float) position.getX(), (float) position.getY(), 20);
     }
 }
