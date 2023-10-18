@@ -95,12 +95,14 @@ public class Fenetre {
 
                 //TODO update
 
-                Raycasting.getInstance().computeRays();
+
 
                 //TODO render
 
                 Rendu.getInstance().drawPlayer();
                 PersonnageController.getPersonnageController().deplacement();
+
+                Raycasting.getInstance().computeRays();
                 //TODO tick++
 
                 frames++;
