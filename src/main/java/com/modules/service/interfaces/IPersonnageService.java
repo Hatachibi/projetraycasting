@@ -8,6 +8,10 @@ public interface IPersonnageService {
 
     void drawPlayer();
 
+    void updatePlayer();
+
+    void setDirection(Vector2 direction);
+
     Vector2 getPosition();
 
     void addAngle(float angle);

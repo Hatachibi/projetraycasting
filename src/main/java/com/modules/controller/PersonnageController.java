@@ -57,20 +57,18 @@ public class PersonnageController implements PersonnageApi {
     private void moveLeft() {
        // PersonnageService.getPersonnageService().getPosition().addX(-1);
         PersonnageService.getPersonnageService().addAngle(0.1f);
+        //PersonnageService.getPersonnageService().setDirection(new Vector2(-1,0));
+
     }
 
     private void moveRight() {
-       // PersonnageService.getPersonnageService().getPosition().addX(1);
         PersonnageService.getPersonnageService().addAngle(-0.1f);
+        //PersonnageService.getPersonnageService().setDirection(new Vector2(1,0));
     }
 
-    private void moveDown() {
-        PersonnageService.getPersonnageService().getPosition().addY(-1);
-    }
+    private void moveDown() {PersonnageService.getPersonnageService().setDirection(new Vector2(0,-1));}
 
-    private void moveUp() {
-        PersonnageService.getPersonnageService().getPosition().addY(1);
-    }
+    private void moveUp() {PersonnageService.getPersonnageService().setDirection(new Vector2(0,1));}
 
     public static PersonnageApi getPersonnageController() {
         return personnageController;
@@ -84,4 +82,6 @@ public class PersonnageController implements PersonnageApi {
     public void drawPlayer() {
         PersonnageService.getPersonnageService().drawPlayer();
     }
+
+    public void updatePlayer(){ PersonnageService.getPersonnageService().updatePlayer();}
 }

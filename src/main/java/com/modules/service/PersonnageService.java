@@ -52,16 +52,31 @@ public class PersonnageService implements IPersonnageService {
         Rendu.getInstance().drawPoint((float) position.getX(), (float) position.getY(), 20);
     }
 
-    public void addAngle(float angle) {
+    public void updatePlayer(){
+        deplacement();
+    }
+
+    public void addAngle(float angle) {s
         float tmp = this.angle + angle*10;
-        if(tmp >= 360 || tmp <=0){
+        if(tmp >= 360 ){
+            this.angle = 0;
+        } else if (tmp <=0){
             this.angle = 360;
         } else {
             this.angle += angle*10;
         }
+        System.out.println(this.angle);
     }
 
     public float getAngle() {
         return angle;
+    }
+
+    public Vector2 getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Vector2 direction) {
+        this.direction = direction;
     }
 }
