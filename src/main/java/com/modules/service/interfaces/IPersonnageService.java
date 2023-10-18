@@ -10,4 +10,7 @@ public interface IPersonnageService {
 
     Vector2 getPosition();
 
+    void addAngle(float angle);
+
+    float getAngle();
 }

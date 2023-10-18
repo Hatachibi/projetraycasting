@@ -17,15 +17,17 @@ public class Raycasting {
 
     public void computeRays() {
         Vector2 playerPosition = PersonnageService.getPersonnageService().getPosition();
+        float angle = PersonnageService.getPersonnageService().getAngle();
 
         for (float i = -FOV / 2; i <= FOV / 2; i += FOV / NUMBER_RAYS) {
             // Rotation du vecteur (i degrés) autour de l'origine
-            Vector2 finishPosition = Calcul.rotateVector(i,playerPosition);
+            Vector2 finishPosition = Calcul.rotateVector(i+angle,new Vector2(playerPosition.getX(),0));
 
             // Coordonnées du point de départ
             float x1 = (float) playerPosition.getX();
             float y1 = (float) playerPosition.getY();
 
+            finishPosition.euclidianNormalize(500.0);
             // Coordonnées du point d'arrêt (après la rotation)
             float x2 = (float) (playerPosition.getX() + finishPosition.getX());
             float y2 = (float) (playerPosition.getY() + finishPosition.getY());

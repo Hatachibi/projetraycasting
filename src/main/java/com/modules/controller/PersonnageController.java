@@ -55,11 +55,13 @@ public class PersonnageController implements PersonnageApi {
     }
 
     private void moveLeft() {
-        PersonnageService.getPersonnageService().getPosition().addX(-1);
+       // PersonnageService.getPersonnageService().getPosition().addX(-1);
+        PersonnageService.getPersonnageService().addAngle(0.1f);
     }
 
     private void moveRight() {
-        PersonnageService.getPersonnageService().getPosition().addX(1);
+       // PersonnageService.getPersonnageService().getPosition().addX(1);
+        PersonnageService.getPersonnageService().addAngle(-0.1f);
     }
 
     private void moveDown() {
