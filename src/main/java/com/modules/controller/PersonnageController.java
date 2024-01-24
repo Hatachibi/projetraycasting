@@ -7,12 +7,16 @@ import com.modules.service.outils.Vector2;
 import com.modules.vue.Fenetre;
 import com.modules.vue.Rendu;
 import org.lwjgl.glfw.GLFW;
+import org.lwjgl.glfw.GLFWCursorPosCallback;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class PersonnageController implements PersonnageApi {
     private final int[] listeInput = {GLFW.GLFW_KEY_W,GLFW.GLFW_KEY_A, GLFW.GLFW_KEY_S, GLFW.GLFW_KEY_D};
     private static final PersonnageApi personnageController = new PersonnageController();
+
+    //Enable rotation
+    private double lastMouseX = 0;
 
     @Override
     public void deplacement()
@@ -21,6 +25,12 @@ public class PersonnageController implements PersonnageApi {
         {
             checkDeplacement(Fenetre.getInstance().getWindow(), key);
         }
+        glfwSetCursorPosCallback(Fenetre.getInstance().getWindow(), new GLFWCursorPosCallback() {
+            @Override
+            public void invoke(long window, double xpos, double ypos) {
+                onMouseMove(window, xpos);
+            }
+        });
     }
     public void checkDeplacement(long window, int key)
     {
@@ -54,16 +64,22 @@ public class PersonnageController implements PersonnageApi {
         drawPlayer();
     }
 
-    private void moveLeft() {
-        PersonnageService.getPersonnageService().addAngle(0.1f);
-        PersonnageService.getPersonnageService().setDirection(new Vector2(-1,0));
-
+    private void onMouseMove(long window, double xpos){
+        if(xpos > lastMouseX){
+            rotateLeft(PersonnageService.getPersonnageService().getMouseSpeed());
+        } else {
+            rotateRight(PersonnageService.getPersonnageService().getMouseSpeed());
+        }
+        lastMouseX = xpos;
     }
 
-    private void moveRight() {
-        PersonnageService.getPersonnageService().addAngle(-0.1f);
-        PersonnageService.getPersonnageService().setDirection(new Vector2(1,0));
-    }
+    private void rotateLeft(float angle){PersonnageService.getPersonnageService().addAngle(angle);}
+
+    private void rotateRight(float angle){PersonnageService.getPersonnageService().addAngle(-angle);}
+
+    private void moveLeft() {PersonnageService.getPersonnageService().setDirection(new Vector2(-1,0));}
+
+    private void moveRight() {PersonnageService.getPersonnageService().setDirection(new Vector2(1,0));}
 
     private void moveDown() {PersonnageService.getPersonnageService().setDirection(new Vector2(0,-1));}
 

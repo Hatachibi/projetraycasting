@@ -17,4 +17,8 @@ public interface IPersonnageService {
     void addAngle(float angle);
 
     float getAngle();
+
+    float getMouseSpeed();
+
+    void setMouseSpeed(float ms);
 }

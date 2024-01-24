@@ -7,8 +7,8 @@ import com.modules.vue.Rendu;
 public class Raycasting {
 
     public final int NUMBER_RAYS = 20;
-    public final float LENGTH_RAY = 50;
-    public final float FOV = 90;
+    public final float LENGTH_RAY = 200;
+    public final float FOV = 180;
 
     private final static Raycasting INSTANCE = new Raycasting();
 
@@ -28,7 +28,7 @@ public class Raycasting {
             float x1 = (float) playerPosition.getX();
             float y1 = (float) playerPosition.getY();
 
-            finishPosition.euclidianNormalize(500.0);
+            finishPosition.euclidianNormalize(LENGTH_RAY);
             // Coordonnées du point d'arrêt (après la rotation)
             float x2 = (float) (playerPosition.getX() + finishPosition.getX());
             float y2 = (float) (playerPosition.getY() + finishPosition.getY());

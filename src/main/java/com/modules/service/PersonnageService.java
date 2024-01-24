@@ -13,6 +13,8 @@ public class PersonnageService implements IPersonnageService {
 
     private Vector2 direction;
 
+    protected float mouseSpeed;
+
     private static final float speedRotation = 5f;
     private static final IPersonnageService personnageService = new PersonnageService();
 
@@ -21,6 +23,7 @@ public class PersonnageService implements IPersonnageService {
         direction = new Vector2();
         this.speed = 5.85;
         this.angle = 0;
+        this.mouseSpeed = 0.2f;
     }
 
     public static IPersonnageService getPersonnageService() {
@@ -79,5 +82,13 @@ public class PersonnageService implements IPersonnageService {
 
     public void setDirection(Vector2 direction) {
         this.direction = direction;
+    }
+
+    public float getMouseSpeed(){
+        return mouseSpeed;
+    }
+
+    public void setMouseSpeed(float ms){
+        mouseSpeed = ms;
     }
 }
