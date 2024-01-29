@@ -7,6 +7,7 @@ import com.modules.service.outils.ConstantesInfos;
 import com.modules.service.outils.Raycasting;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
@@ -14,8 +15,8 @@ import static org.lwjgl.opengl.GL11.*;
 public class Fenetre {
 
     public final static Fenetre INSTANCE = new Fenetre();
-    public final static Integer HeigthFenetre = ConstantesInfos.NB_WIDTH_TILES*65;
-    public final static Integer	WidthFenetre = ConstantesInfos.NB_HEIGHT_TILES*65;
+    public final static Integer HeigthFenetre = ConstantesInfos.TAILLE_CARRE*16;//ConstantesInfos.NB_WIDTH_TILES*65;
+    public final static Integer	WidthFenetre = ConstantesInfos.TAILLE_CARRE*16;//ConstantesInfos.NB_HEIGHT_TILES*65;
 
     public final static Integer FPS = 60;
 
@@ -49,6 +50,7 @@ public class Fenetre {
         GLFWVidMode videoMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
         glfwSetWindowPos(window, (videoMode.width() - Fenetre.WidthFenetre) / 2, (videoMode.height() - Fenetre.HeigthFenetre) /2);
         glfwShowWindow(window);
+
     }
 
     public boolean isClosed() {
@@ -101,6 +103,7 @@ public class Fenetre {
                 PersonnageService.getPersonnageService().deplacement();
 
                 //TODO render
+                GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
                 Rendu.getInstance().drawPlayer();
 

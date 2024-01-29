@@ -1,11 +1,13 @@
 package com.modules.service.outils;
 
+import com.modules.vue.Fenetre;
+
 public class ConstantesInfos
 {
-	public static final int NB_TILES = 9;
-	public static final int NB_HEIGHT_TILES = 13;
-	public static final int NB_WIDTH_TILES = 13;
-	public static final int TAILLE_CARRE = 65;
+	public static final int NB_HEIGHT_TILES = 8;
+	public static final int NB_WIDTH_TILES = 8;
+	public static final int NB_TILES = NB_HEIGHT_TILES*NB_WIDTH_TILES;
+	public static final int TAILLE_CARRE = 64;
 	public static final double TILE_WIDTH = 1.0 / NB_WIDTH_TILES;
 	public static final double TILE_HEIGHT = 1.0 / NB_HEIGHT_TILES;
 	public static final Vector2 TILE_SIZE = new Vector2(TILE_WIDTH, TILE_HEIGHT);

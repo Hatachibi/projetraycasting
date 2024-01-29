@@ -23,7 +23,7 @@ public class PersonnageService implements IPersonnageService {
         direction = new Vector2();
         this.speed = 5.85;
         this.angle = 0;
-        this.mouseSpeed = 0.2f;
+        this.mouseSpeed = 0.5f;
     }
 
     public static IPersonnageService getPersonnageService() {
@@ -53,7 +53,6 @@ public class PersonnageService implements IPersonnageService {
     }
 
     public void drawPlayer() {
-        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         Rendu.getInstance().drawPoint((float) position.getX(), (float) position.getY(), 20);
     }
 
